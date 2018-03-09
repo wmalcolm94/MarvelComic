@@ -1,19 +1,22 @@
 //
-//  Comic.swift
+//  Series.swift
 //  MarvelComic
 //
-//  Created by Alec Malcolm on 2018-03-06.
+//  Created by Alec Malcolm on 2018-03-08.
 //  Copyright © 2018 Alec Malcolm. All rights reserved.
 //
+
 import ObjectMapper
 
-class Comic: Mappable {
+class Series: Mappable {
     var id: Int?
-    var digitalId: Int?
     var title: String?
-    var issueNumber: Int?
     var description: String?
-    var modified: Date?
+    var startYear: Int?
+    var endYear: Int?
+    var previous: Series?
+    var next: Series?
+    var thumbnail: Any?
     
     required init?(map: Map) {
         
@@ -21,10 +24,11 @@ class Comic: Mappable {
     
     func mapping(map: Map) {
         id <- map["id"]
-        digitalId <- map["digitalId"]
         title <- map["title"]
-        issueNumber <- map["issueNumber"]
         description <- map["description"]
-        modified <- map["modified"]
+        startYear <- map["startYear"]
+        endYear <- map["endYear"]
+        previous <- map["previous"]
+        next <- map["next"]
     }
 }
