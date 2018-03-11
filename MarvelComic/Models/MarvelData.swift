@@ -9,11 +9,20 @@
 import ObjectMapper 
 
 class MarvelData: Mappable {
-    var offset: Int? //"offset": 0,
-    var limit: Int? //"limit": 20,
-    var total: Int? //"total": 1,
-    var count: Int? //"count": 1,
-    var results: [Comic]?
+    //actual marvel data info
+    var offset: Int?
+    var limit: Int?
+    var total: Int?
+    var count: Int?
+    var results: [Any]?
+    
+    //for the various options that results can be.
+    var characters: [Character]?
+    var comics: [Comic]?
+    var creators: [Creator]?
+    var events: [Event]?
+    var series: [Series]?
+    var stories: [Story]?
     
     required init?(map: Map) {
         
@@ -25,5 +34,27 @@ class MarvelData: Mappable {
         total <- map["total"]
         count <- map["count"]
         results <- map["results"]
+        self.evaluateResults()
+    }
+    
+    func evaluateResults() {
+        if results is [Character]? {
+            characters = results as? [Character] 
+        }
+        if results is [Comic]? {
+            comics = results as? [Comic]
+        }
+        if results is [Creator]? {
+            creators = results as? [Creator]
+        }
+        if results is [Event]? {
+            events = results as? [Event]
+        }
+        if results is [Series]? {
+            series = results as? [Series]
+        }
+        if results is [Story]? {
+            stories = results as? [Story]
+        }
     }
 }
