@@ -14,7 +14,7 @@ class MarvelData: Mappable {
     var limit: Int?
     var total: Int?
     var count: Int?
-    var results: [Character]?
+    //var results: [Character]?
     
     //for the various options that results can be.
     var characters: [Character]?
@@ -29,11 +29,16 @@ class MarvelData: Mappable {
     }
     
     func mapping(map: Map) {
-        offset <- map["offset"]
-        limit <- map["limit"]
-        total <- map["total"]
-        count <- map["count"]
-        results <- map["results"]
+        offset      <- map["offset"]
+        limit       <- map["limit"]
+        total       <- map["total"]
+        count       <- map["count"]
+        characters  <- map["results"]
+        comics      <- map["results"]
+        creators    <- map["results"]
+        events      <- map["results"]
+        series      <- map["results"]
+        stories     <- map["results"]
         //self.evaluateResults()
     }
     

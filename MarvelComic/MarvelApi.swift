@@ -30,179 +30,157 @@ final class MarvelApi {
         return theKey
     }
     
-    static func getCharacters() -> [Character]? {
-        guard let theKey = key else {
-            return nil
-        }
-        let url = "https://gateway.marvel.com:443/v1/public/characters/" + theKey
+    static func apiCharacters(_ onSuccess: @escaping ([Character]?) -> () ) {
+        guard let theKey = key else { return }
+        let url = "https://gateway.marvel.com:443/v1/public/characters" + theKey
         
-        var characters: [Character]? = nil
         Alamofire.request(url).responseObject { (response: DataResponse<MarvelWrapper>) in 
             if let characterResponse = response.result.value {
-                if let characterResults = characterResponse.data?.results {
-                    characters = characterResults
+                if let characterResults = characterResponse.data?.characters {
+                    onSuccess(characterResults)
                 }
             }
         }
+    }
+
+    static func apiCharacter(id: Int, _ onSuccess: @escaping (Character?) -> () ) {
+        guard let theKey = key else { return }
+        let url = "https://gateway.marvel.com:443/v1/public/characters/\(id)\(theKey)"
         
-        return characters
+        Alamofire.request(url).responseObject { (response: DataResponse<MarvelWrapper>) in 
+            guard let characterResponse = response.result.value else { return }
+            guard let characterResults = characterResponse.data?.characters else { return }
+            onSuccess(characterResults[0])
+        }
     }
     
-    static func getCharacter(id: Int) -> Character? {
-        guard let theKey = key else {
-            return nil
+    static func apiComics(_ onSuccess: @escaping ([Comic]?) -> () ) {
+        guard let theKey = key else { return }
+        let url = "https://gateway.marvel.com:443/v1/public/comics" + theKey
+        
+        Alamofire.request(url).responseObject { (response: DataResponse<MarvelWrapper>) in 
+            if let comicsResponse = response.result.value {
+                if let comicResults = comicsResponse.data?.comics {
+                    onSuccess(comicResults)
+                }
+            }
         }
-        let url: String = "https://gateway.marvel.com:443/v1/public/characters/\(id)" + theKey
-        var character: Character? = nil
+    }
+    
+    static func apiComic(id: Int, _ onSuccess: @escaping (Comic?) -> () ) {
+        guard let theKey = key else { return }
+        let url = "https://gateway.marvel.com:443/v1/public/comics/\(id)\(theKey)"
+        
+        Alamofire.request(url).responseObject { (response: DataResponse<MarvelWrapper>) in 
+            guard let comicResponse = response.result.value else { return }
+            guard let comicResults = comicResponse.data?.comics else { return }
+            onSuccess(comicResults[0])
+        }
+    }
+    
+    static func apiCreators(_ onSuccess: @escaping ([Creator]?) -> () ) {
+        guard let theKey = key else { return }
+        let url = "https://gateway.marvel.com:443/v1/public/creators" + theKey
+        
+        Alamofire.request(url).responseObject { (response: DataResponse<MarvelWrapper>) in 
+            if let creatorsResponse = response.result.value {
+                if let creatorResults = creatorsResponse.data?.creators {
+                    onSuccess(creatorResults)
+                }
+            }
+        }
+    }
+    
+    static func apiCreator(id: Int, _ onSuccess: @escaping (Creator?) -> () ) {
+        guard let theKey = key else { return }
+        let url = "https://gateway.marvel.com:443/v1/public/creators/\(id)\(theKey)"
+        
         Alamofire.request(url).responseObject { (response: DataResponse<MarvelWrapper>) in
-            if let characterResponse = response.result.value {
-                if let characterResults = characterResponse.data?.results {
-                    character = characterResults[0]
+            guard let creatorResponse = response.result.value else { return }
+            guard let creatorResults = creatorResponse.data?.creators else { return }
+            onSuccess(creatorResults[0])
+        }
+    }
+    
+    static func apiEvents(_ onSuccess: @escaping ([Event]?) -> () ) {
+        guard let theKey = key else { return }
+        let url = "https://gateway.marvel.com:443/v1/public/events" + theKey
+        Alamofire.request(url).responseObject { (response: DataResponse<MarvelWrapper>) in 
+            if let eventsResponse = response.result.value {
+                if let eventResults = eventsResponse.data?.events {
+                    onSuccess(eventResults)
                 }
             }
         }
-        return character
     }
     
-//    public func getComics() -> [Comic]? {
-//        let url: String = base + "comics" + key
-//        var comics: [Comic]? = nil
-//        Alamofire.request(url).responseObject { (response: DataResponse<MarvelWrapper>) in
-//            if let comicResponse = response.result.value {
-//                if let comicResults = comicResponse.data?.results {
-//                    //comics = comicResults
-//                }
-//            }
-//        }
-//        return comics
-//    }
-//    
-//    public func getComic(id: Int) -> Comic? {
-//        let url: String = base + "comics/\(id)" + key
-//        var comic: Comic? = nil
-//        Alamofire.request(url).responseObject { (response: DataResponse<MarvelWrapper>) in
-//            if let comicResponse = response.result.value {
-//                if let comicResults = comicResponse.data?.results {
-//                    //comic = comicResults[0]
-//                }
-//            } 
-//        }
-//        return comic
-//    }
-//    
-//    public func getCreators() -> [Creator]? {
-//        let url: String = base + "creators/" + key
-//        var creators: [Creator]? = nil
-//        Alamofire.request(url).responseObject { (response: DataResponse<MarvelWrapper>) in
-//            if let creatorsResponse = response.result.value {
-//                if let creatorsResults = creatorsResponse.data?.results {
-//                    //creators = creatorsResults
-//                }
-//            }
-//        }
-//        return creators
-//    }
-//    
-//    public func getCreator(id: Int) -> Creator? {
-//        let url: String = base + "creators/\(id)" + key
-//        var creator: Creator? = nil
-//        Alamofire.request(url).responseObject { (response: DataResponse<MarvelWrapper>) in
-//            if let creatorResponse = response.result.value {
-//                if let creatorResult = creatorResponse.data?.results {
-//                    //creator = creatorResults[0]
-//                }
-//            }
-//        }
-//        return creator
-//    }
-//    
-//    public func getEvents() -> [Event]? {
-//        let url: String = base + "events/" + key
-//        var events: [Event]? = nil
-//        Alamofire.request(url).responseObject { (response: DataResponse<MarvelWrapper>) in
-//            if let eventsResponse = response.result.value {
-//                if let eventsResult = eventsResponse.data?.results {
-//                    //events = eventsResult
-//                }
-//            }
-//        }
-//        return events
-//    }
-//    
-//    public func getEvent(id: Int) -> Event? {
-//        let url: String = base + "events/\(id)" + key
-//        var event: Event? = nil
-//        Alamofire.request(url).responseObject { (response: DataResponse<MarvelWrapper>) in
-//            if let eventsResponse = response.result.value {
-//                if let eventsResult = eventsResponse.data?.results {
-//                    //event = eventsResult[0]
-//                }
-//            }
-//        }
-//        return event
-//    }
-//    
-//    public func getSeries() -> [Series]? {
-//        let url: String = base + "series/" + key
-//        var series: [Series]? = nil
-//        Alamofire.request(url).responseObject { (response: DataResponse<MarvelWrapper>) in
-//            if let seriesResponse = response.result.value { 
-//                if let seriesResult = seriesResponse.data?.results {
-//                    //series = seriesResult
-//                }
-//            }
-//        }
-//        return series
-//    }
-//    
-//    public func getSeries(id: Int) -> Series? {
-//        let url: String = base + "series/\(id)" + key
-//        var series: Series? = nil
-//        Alamofire.request(url).responseObject { (response: DataResponse<MarvelWrapper>) in
-//            if let seriesResponse = response.result.value {
-//                if let seriesResult = seriesResponse.data?.results {
-//                    //series = seriesResult[0]
-//                }
-//            }
-//        }
-//        return series
-//    }
-//    
-//    public func getStories() -> [Story]? {
-//        let url: String = base + "stories/" + key
-//        var stories: [Story]? = nil
-//        Alamofire.request(url).responseObject { (response: DataResponse<MarvelWrapper>) in
-//            if let storyResponse = response.result.value {
-//                if let storyResult = storyResponse.data?.results {
-//                    //stories = storyResults
-//                }
-//            }
-//        }
-//        return stories 
-//    }
-//    
-//    public func getStory(id: Int) -> Story? {
-//        let url: String = base + "stories/\(id)" + key
-//        var story: Story? = nil
-//        Alamofire.request(url).responseObject { (response: DataResponse<MarvelWrapper>) in
-//            if let storyResponse = response.result.value {
-//                if let storyResult = storyResponse.data?.results {
-//                    //story = storyResults[0]
-//                }
-//            }
-//        }
-//        return story
-//    }
-    
-    private func md5(string: String) -> Data {
-        let messageData = string.data(using:.utf8)!
-        var digestData = Data(count: Int(CC_MD5_DIGEST_LENGTH))
+    static func apiEvent(id: Int, _ onSuccess: @escaping (Event?) -> () ) {
+        guard let theKey = key else { return }
+        let url = "https://gateway.marvel.com:443/v1/public/creators/\(id)\(theKey)"
         
-        _ = digestData.withUnsafeMutableBytes {digestBytes in
-            messageData.withUnsafeBytes {messageBytes in
-                CC_MD5(messageBytes, CC_LONG(messageData.count), digestBytes)
+        Alamofire.request(url).responseObject { (response: DataResponse<MarvelWrapper>) in 
+            guard let eventResponse = response.result.value else { return }
+            guard let eventResults = eventResponse.data?.events else { return }
+            onSuccess(eventResults[0])
+        }
+    }
+    
+    static func apiSeries(_ onSuccess: @escaping ([Series]?) -> () ) {
+        guard let theKey = key else { return }
+        let url = "https://gateway.marvel.com:443/v1/public/series" + theKey
+        Alamofire.request(url).responseObject { (response: DataResponse<MarvelWrapper>) in 
+            if let seriesResponse = response.result.value { 
+                if let seriesResults = seriesResponse.data?.series {
+                    onSuccess(seriesResults)
+                }
             }
         }
-        return digestData
     }
+    
+    static func apiSeries(id: Int, _ onSuccess: @escaping (Series?) -> () ) {
+        guard let theKey = key else { return }
+        let url = "https://gateway.marvel.com:443/v1/public/series\(id)\(theKey)"
+        
+        Alamofire.request(url).responseObject { (response: DataResponse<MarvelWrapper>) in 
+            guard let seriesResponse = response.result.value else { return }
+            guard let seriesResults = seriesResponse.data?.series else { return }
+            onSuccess(seriesResults[0])
+        }
+    }
+    
+    static func apiStories(_ onSuccess: @escaping ([Story]?) -> () ) {
+        guard let theKey = key else { return }
+        let url = "https://gateway.marvel.com:443/v1/public/stories" + theKey
+        Alamofire.request(url).responseObject { (response: DataResponse<MarvelWrapper>) in 
+            if let storiesResponse = response.result.value {
+                if let storiesResults = storiesResponse.data?.stories { 
+                    onSuccess(storiesResults)
+                }
+            }
+        }
+    }
+
+    static func apiStory(id: Int, _ onSuccess: @escaping (Story?) -> () ) {
+        guard let theKey = key else { return }
+        let url = "https://gateway.marvel.com:443/v1/public/stories/\(id)\(theKey)"
+        
+        Alamofire.request(url).responseObject { (response: DataResponse<MarvelWrapper>) in 
+            guard let storyResponse = response.result.value else { return }
+            guard let storyResults = storyResponse.data?.stories else { return }
+            onSuccess(storyResults[0])
+        }
+    }
+    
+    
+//    private func md5(string: String) -> Data {
+//        let messageData = string.data(using:.utf8)!
+//        var digestData = Data(count: Int(CC_MD5_DIGEST_LENGTH))
+//        
+//        _ = digestData.withUnsafeMutableBytes {digestBytes in
+//            messageData.withUnsafeBytes {messageBytes in
+//                CC_MD5(messageBytes, CC_LONG(messageData.count), digestBytes)
+//            }
+//        }
+//        return digestData
+//    }
 }

@@ -9,12 +9,13 @@
 import ObjectMapper
 
 class Character: Mappable {
+    
     var id: Int?
     var name: String?
     var description: String?
     var modified: Date?
     var thumbnail: Any?
-    
+
     required init?(map: Map) {
         
     }

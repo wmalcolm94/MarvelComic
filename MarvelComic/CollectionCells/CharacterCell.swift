@@ -8,14 +8,21 @@
 
 import UIKit
 
-class CharacterCell: UITableViewCell {
+class CharacterCell : UICollectionViewCell {
+    
     @IBOutlet weak var nameLabel: UILabel!
+    
+    override var isSelected: Bool {
+        didSet {
+            nameLabel.layer.borderWidth = isSelected ? 10 : 0
+        }
+    }
+    
     var character: Character? {
         didSet {
             guard let character = character else { return }
-            
             nameLabel.text = character.name
-//            ratingImageView.image = image(forRating: player.rating)
+            //ratingImageView.image = image(forRating: player.rating)
         }
     }
 }
