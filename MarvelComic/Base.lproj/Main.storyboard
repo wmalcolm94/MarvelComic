@@ -136,7 +136,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-834" y="-681"/>
+            <point key="canvasLocation" x="-5031" y="1540"/>
         </scene>
         <!--Stories View Controller-->
         <scene sceneID="hcs-zB-FwC">
@@ -171,6 +171,7 @@
                                 </view>
                                 <connections>
                                     <outlet property="titleLabel" destination="sty-9B-dDI" id="7eh-F7-72B"/>
+                                    <segue destination="mNX-Dp-ecd" kind="presentation" id="RLC-L1-CSL"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -183,7 +184,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QR9-3E-R0E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1711.2" y="116.49175412293854"/>
+            <point key="canvasLocation" x="1065" y="1541"/>
         </scene>
         <!--Creators View Controller-->
         <scene sceneID="ORv-zd-kdm">
@@ -218,6 +219,7 @@
                                 </view>
                                 <connections>
                                     <outlet property="nameLabel" destination="Tzj-qb-5f1" id="acJ-cY-gk8"/>
+                                    <segue destination="0p0-m7-xfo" kind="presentation" id="Qpy-Cu-6F8"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -366,8 +368,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="hpX-2r-9eq"/>
                     </view>
-                    <navigationItem key="navigationItem" id="5Dc-1e-937"/>
+                    <navigationItem key="navigationItem" id="UC5-ex-li7"/>
                     <connections>
+                        <outlet property="backButton" destination="UC5-ex-li7" id="DFG-kW-lrS"/>
                         <outlet property="descriptionText" destination="efq-iy-X2C" id="hfO-0O-nOl"/>
                         <outlet property="nameLabel" destination="PDA-hm-dGc" id="iWp-1a-wth"/>
                     </connections>
@@ -412,6 +415,43 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0JT-CT-AJK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2616.8000000000002" y="-1389.3553223388308"/>
+        </scene>
+        <!--Creator View Controller-->
+        <scene sceneID="wHe-xH-JDf">
+            <objects>
+                <viewController title="Creator View Controller" id="kSj-jK-kZM" customClass="CreatorViewController" customModule="MarvelComic" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="s5Q-im-zcU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5KB-Lg-CuR">
+                                <rect key="frame" x="16" y="64" width="343" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="c5u-YB-kDY">
+                                <rect key="frame" x="16" y="116" width="343" height="531"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="DSp-Aw-4Fn"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="cgV-wQ-qgF"/>
+                    <connections>
+                        <outlet property="descriptionText" destination="c5u-YB-kDY" id="SNs-o2-tRL"/>
+                        <outlet property="nameLabel" destination="5KB-Lg-CuR" id="Fr9-WY-drO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gRc-V4-QqM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2616.8000000000002" y="-669.71514242878561"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="N0V-Zc-gYE">
@@ -470,7 +510,7 @@
         <!--Events View Controller-->
         <scene sceneID="XdH-AH-YyM">
             <objects>
-                <collectionViewController title="Events View Controller" id="EdD-VW-5f5" customClass="EventViewController" customModule="MarvelComic" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController title="Events View Controller" id="EdD-VW-5f5" customClass="EventsViewController" customModule="MarvelComic" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="N3M-Lu-qsV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -500,6 +540,7 @@
                                 </view>
                                 <connections>
                                     <outlet property="titleLabel" destination="6Cr-c2-jao" id="PDq-61-JBU"/>
+                                    <segue destination="7UF-0j-Bg4" kind="presentation" id="Hhp-R8-6Nb"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -512,7 +553,118 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gfq-0d-Lut" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1743.2" y="79.610194902548727"/>
+            <point key="canvasLocation" x="1065" y="72"/>
+        </scene>
+        <!--Event View Controller-->
+        <scene sceneID="zxm-mf-Ooe">
+            <objects>
+                <viewController title="Event View Controller" id="05Q-cN-i95" customClass="EventViewController" customModule="MarvelComic" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nGX-xf-5hs">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zok-Hd-159">
+                                <rect key="frame" x="16" y="20" width="343" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="qer-Qt-7Yu">
+                                <rect key="frame" x="16" y="75" width="343" height="572"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="fOW-y5-rPC"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="z9B-xC-eMy"/>
+                    <connections>
+                        <outlet property="descriptionText" destination="qer-Qt-7Yu" id="9Bw-Qq-cri"/>
+                        <outlet property="titleLabel" destination="zok-Hd-159" id="OCk-Ww-EQF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="E4i-tP-D2Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2617" y="72"/>
+        </scene>
+        <!--SeriezViewController-->
+        <scene sceneID="2sl-zY-L8X">
+            <objects>
+                <viewController title="SeriezViewController" id="4qO-yJ-JCD" customClass="SeriezViewController" customModule="MarvelComic" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oqo-GV-Mvt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eL4-vh-0ON">
+                                <rect key="frame" x="16" y="64" width="343" height="54"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Ven-F3-1Qc">
+                                <rect key="frame" x="16" y="126" width="343" height="521"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Mk2-cp-CD4"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="0Ud-r9-tro"/>
+                    <connections>
+                        <outlet property="descriptionText" destination="Ven-F3-1Qc" id="gUZ-do-Ve3"/>
+                        <outlet property="titleLabel" destination="eL4-vh-0ON" id="2Vn-8w-8fn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zb5-1F-TRh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2616.8000000000002" y="781.25937031484261"/>
+        </scene>
+        <!--Story View Controller-->
+        <scene sceneID="YE1-rg-ci0">
+            <objects>
+                <viewController title="Story View Controller" id="U4b-yy-PNs" customClass="StoryViewController" customModule="MarvelComic" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="uqU-9n-ibZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6z5-GD-ToZ">
+                                <rect key="frame" x="16" y="64" width="343" height="54"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="5Se-Hm-Ir6">
+                                <rect key="frame" x="16" y="126" width="343" height="521"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="SsM-y8-8u4"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="PNt-I0-afL"/>
+                    <connections>
+                        <outlet property="descriptionText" destination="5Se-Hm-Ir6" id="Bei-Hv-Yls"/>
+                        <outlet property="titleLabel" destination="6z5-GD-ToZ" id="wCe-b3-zX2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ct1-ep-Sxy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2617" y="1540"/>
         </scene>
         <!--Series View Controller-->
         <scene sceneID="3JI-BL-8Rw">
@@ -547,6 +699,7 @@
                                 </view>
                                 <connections>
                                     <outlet property="titleLabel" destination="Pj7-J0-3An" id="Qgf-u6-xBK"/>
+                                    <segue destination="hoZ-Iw-qDW" kind="presentation" id="9aO-Tf-SPq"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -559,7 +712,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z4T-d0-XbP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="144.80000000000001" y="171.36431784107947"/>
+            <point key="canvasLocation" x="1065" y="791"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="v5X-h9-gEX">
@@ -577,7 +730,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tsI-CN-2JZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="884" y="79.610194902548727"/>
+            <point key="canvasLocation" x="206" y="80"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="IJN-Xe-jc9">
@@ -595,7 +748,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Qr-e8-x6w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-660" y="172.26386806596702"/>
+            <point key="canvasLocation" x="206" y="791"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="bQJ-IX-PAr">
@@ -613,7 +766,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gkJ-gV-oW5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1711" y="-593"/>
+            <point key="canvasLocation" x="206" y="1540"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="LRc-ie-2RU">
@@ -650,6 +803,78 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hy2-PM-Vaw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1825" y="-1389"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="79e-aN-Tle">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0p0-m7-xfo" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ON4-4V-qCl">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="kSj-jK-kZM" kind="relationship" relationship="rootViewController" id="78g-oW-88j"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8wv-nO-PDz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1846" y="-670"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="n3Z-4G-6tZ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7UF-0j-Bg4" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gne-Pi-2G0">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="05Q-cN-i95" kind="relationship" relationship="rootViewController" id="39c-tP-5QS"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="V8d-me-j0F" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1846" y="80"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Kjn-PK-CYH">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hoZ-Iw-qDW" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="a7H-q5-cYS">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="4qO-yJ-JCD" kind="relationship" relationship="rootViewController" id="kYX-oh-VLP"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tc3-jW-8KX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1846" y="790"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="8cW-lb-NKE">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mNX-Dp-ecd" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ddM-8H-ukI">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="U4b-yy-PNs" kind="relationship" relationship="rootViewController" id="wqf-kJ-524"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8FW-8l-d1f" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1846" y="1540"/>
         </scene>
     </scenes>
     <resources>

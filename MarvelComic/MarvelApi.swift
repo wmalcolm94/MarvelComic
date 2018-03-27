@@ -116,7 +116,7 @@ final class MarvelApi {
     
     static func apiEvent(id: Int, _ onSuccess: @escaping (Event?) -> () ) {
         guard let theKey = key else { return }
-        let url = "https://gateway.marvel.com:443/v1/public/creators/\(id)\(theKey)"
+        let url = "https://gateway.marvel.com:443/v1/public/events/\(id)\(theKey)"
         
         Alamofire.request(url).responseObject { (response: DataResponse<MarvelWrapper>) in 
             guard let eventResponse = response.result.value else { return }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EventViewController : UICollectionViewController {
+class EventsViewController : UICollectionViewController {
     fileprivate let reuseIdentifier = "EventCell"
     var events: [Event]?
     
@@ -23,7 +23,7 @@ class EventViewController : UICollectionViewController {
     }
 }
 
-private extension EventViewController {
+private extension EventsViewController {
     func EventsForIndexPath(indexPath: IndexPath) -> String? {
         guard let results = events else { return nil }
         guard let fuck = results[(indexPath as NSIndexPath).section].title else { return nil }
@@ -31,7 +31,7 @@ private extension EventViewController {
     }
 }
 
-extension EventViewController {
+extension EventsViewController {
     //1
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         guard let results = events else {
