@@ -7,34 +7,62 @@
 //
 
 import UIKit 
+import CoreData
 
 class CharacterViewController : UIViewController {
-    var character: Character?
-    
-    @IBOutlet weak var backButton: UINavigationItem!
+    var character: CharacterModel?
+    var chars: [NSManagedObject] = []
+
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var descriptionText: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()        
-        MarvelApi.apiCharacter(id: 1010354, self.setCharacter) //Adam Warlock ID
+        guard let id = character?.id else { return }
+        MarvelApi.apiCharacter(id: id, self.setCharacter) //Adam Warlock ID
     }
     
-//    override func viewWillAppear(_ animated: Bool) {
-//        navigationItem.title = "Back"
-//    }
-//    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        navigationItem.title = nil
-//        let vc = segue.destination as UIViewController
-//        vc.navigationItem.title = "Characters Controller"
-//        navigationItem.title = "Back"
-//
-//    }
+    @IBAction func favouriteClick(_ sender: UIButton) {
+        guard let id = character?.id else { return }
+        self.save(id: id)
+    }
     
-    func setCharacter(_ char: Character?) {
+    func setCharacter(_ char: CharacterModel?) {
         self.character = char
         nameLabel.text = self.character?.name
         descriptionText.text = self.character?.description
+        
+        self.findCharacter()
+    }
+    
+    func findCharacter() {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Character")
+        guard let id = character?.id else  { return }
+        let predicate = NSPredicate(format: "id == \(id)")
+        fetchRequest.predicate = predicate
+        
+        do {
+            chars = try managedContext.fetch(fetchRequest)
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+    }
+    
+    func save(id: Int) {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let entity = NSEntityDescription.entity(forEntityName: "Character", in: managedContext)
+        let char = NSManagedObject(entity: entity!, insertInto: managedContext)
+        char.setValue(id, forKeyPath: "id")
+        
+        do {
+            try managedContext.save()
+            chars.append(char)
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
     }
 }

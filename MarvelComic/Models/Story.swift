@@ -8,7 +8,7 @@
 
 import ObjectMapper
 
-class Story: Mappable {
+class StoryModel: Mappable {
     var id: Int?
     var title: String?
     var description: String?

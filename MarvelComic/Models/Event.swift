@@ -8,7 +8,7 @@
 
 import ObjectMapper
 
-class Event: Mappable {
+class EventModel: Mappable {
     var id: Int?
     var title: String?
     var description: String?

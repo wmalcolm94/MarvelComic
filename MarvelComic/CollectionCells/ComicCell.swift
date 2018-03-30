@@ -12,7 +12,7 @@ class ComicCell : UICollectionViewCell {
     
     @IBOutlet weak var titleLabel: UILabel!
     
-    var comic: Comic? {
+    var comic: ComicModel? {
         didSet {
             guard let comic = comic else { return }
             titleLabel.text = comic.title

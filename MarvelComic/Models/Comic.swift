@@ -7,7 +7,7 @@
 //
 import ObjectMapper
 
-class Comic: Mappable {
+class ComicModel: Mappable {
     var id: Int?
     var digitalId: Int?
     var title: String?

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -141,7 +141,7 @@
         <!--Stories View Controller-->
         <scene sceneID="hcs-zB-FwC">
             <objects>
-                <collectionViewController id="xfP-GF-7dc" customClass="StoriesViewController" customModule="MarvelComic" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="storiesViewController" id="xfP-GF-7dc" customClass="StoriesViewController" customModule="MarvelComic" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="7LI-tx-aUM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -171,7 +171,6 @@
                                 </view>
                                 <connections>
                                     <outlet property="titleLabel" destination="sty-9B-dDI" id="7eh-F7-72B"/>
-                                    <segue destination="mNX-Dp-ecd" kind="presentation" id="RLC-L1-CSL"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -181,15 +180,18 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" id="Y7O-o2-Apo"/>
+                    <connections>
+                        <segue destination="U4b-yy-PNs" kind="presentation" id="WQv-Mz-KXi"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QR9-3E-R0E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1065" y="1541"/>
+            <point key="canvasLocation" x="1066" y="1662"/>
         </scene>
         <!--Creators View Controller-->
         <scene sceneID="ORv-zd-kdm">
             <objects>
-                <collectionViewController id="DjP-su-3el" customClass="CreatorsViewController" customModule="MarvelComic" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="creatorsViewController" id="DjP-su-3el" customClass="CreatorsViewController" customModule="MarvelComic" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Eya-Gn-rnQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -219,7 +221,6 @@
                                 </view>
                                 <connections>
                                     <outlet property="nameLabel" destination="Tzj-qb-5f1" id="acJ-cY-gk8"/>
-                                    <segue destination="0p0-m7-xfo" kind="presentation" id="Qpy-Cu-6F8"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -229,10 +230,13 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" id="hNU-IX-H3B"/>
+                    <connections>
+                        <segue destination="kSj-jK-kZM" kind="presentation" id="fwG-IP-Tbb"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cNd-q9-y0W" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1064.8" y="-669.71514242878561"/>
+            <point key="canvasLocation" x="1065" y="-613"/>
         </scene>
         <!--Comics View Controller-->
         <scene sceneID="yKR-ed-HU6">
@@ -267,7 +271,6 @@
                                 </view>
                                 <connections>
                                     <outlet property="titleLabel" destination="HID-T2-bvT" id="7K6-dD-okw"/>
-                                    <segue destination="oxh-Ld-yIO" kind="presentation" id="UPa-zB-pWc"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -277,15 +280,18 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" id="hrk-ld-qhS"/>
+                    <connections>
+                        <segue destination="0md-Hb-CBS" kind="presentation" id="jpK-y6-ENT"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rn0-Gb-Zpz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1065" y="-1389"/>
+            <point key="canvasLocation" x="1065" y="-1359"/>
         </scene>
         <!--CharacterViewController-->
         <scene sceneID="uMg-aZ-gTT">
             <objects>
-                <collectionViewController title="CharacterViewController" id="1si-ps-eqo" customClass="CharactersViewController" customModule="MarvelComic" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="charactersViewController" title="CharacterViewController" id="1si-ps-eqo" customClass="CharactersViewController" customModule="MarvelComic" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="wlV-Hf-7lC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -320,7 +326,6 @@
                                 </constraints>
                                 <connections>
                                     <outlet property="nameLabel" destination="hCa-Xx-Piq" id="hVx-d2-dPU"/>
-                                    <segue destination="LHn-FU-Y1f" kind="presentation" id="LDP-Qp-wuf"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -330,15 +335,18 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" id="M0Y-8f-Wec"/>
+                    <connections>
+                        <segue destination="aRk-mV-JmQ" kind="presentation" id="Dry-gA-MYv"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pdu-1h-VE3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1066" y="-2042"/>
+            <point key="canvasLocation" x="1066" y="-2084"/>
         </scene>
         <!--Character View Controller-->
         <scene sceneID="JQ7-jh-lGh">
             <objects>
-                <viewController id="aRk-mV-JmQ" customClass="CharacterViewController" customModule="MarvelComic" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="characterViewController" id="aRk-mV-JmQ" customClass="CharacterViewController" customModule="MarvelComic" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qF1-10-uJA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -351,6 +359,15 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Erk-ka-Jm3">
+                                <rect key="frame" x="258" y="76" width="101" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Favourite"/>
+                                <connections>
+                                    <action selector="favouriteClick:" destination="aRk-mV-JmQ" eventType="touchUpInside" id="Cj8-If-Itc"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PDA-hm-dGc">
                                 <rect key="frame" x="16" y="76" width="343" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -370,19 +387,18 @@
                     </view>
                     <navigationItem key="navigationItem" id="UC5-ex-li7"/>
                     <connections>
-                        <outlet property="backButton" destination="UC5-ex-li7" id="DFG-kW-lrS"/>
                         <outlet property="descriptionText" destination="efq-iy-X2C" id="hfO-0O-nOl"/>
                         <outlet property="nameLabel" destination="PDA-hm-dGc" id="iWp-1a-wth"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p7B-dv-Jbg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2616.8000000000002" y="-2043.3283358320841"/>
+            <point key="canvasLocation" x="1825" y="-2085"/>
         </scene>
         <!--ComicViewController-->
         <scene sceneID="oWo-Iz-I2P">
             <objects>
-                <viewController title="ComicViewController" id="0md-Hb-CBS" customClass="ComicViewController" customModule="MarvelComic" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="comicViewController" title="ComicViewController" id="0md-Hb-CBS" customClass="ComicViewController" customModule="MarvelComic" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rnM-oK-LfT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -414,12 +430,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0JT-CT-AJK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2616.8000000000002" y="-1389.3553223388308"/>
+            <point key="canvasLocation" x="1825" y="-1359"/>
         </scene>
         <!--Creator View Controller-->
         <scene sceneID="wHe-xH-JDf">
             <objects>
-                <viewController title="Creator View Controller" id="kSj-jK-kZM" customClass="CreatorViewController" customModule="MarvelComic" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="creatorViewController" title="Creator View Controller" id="kSj-jK-kZM" customClass="CreatorViewController" customModule="MarvelComic" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="s5Q-im-zcU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -451,7 +467,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gRc-V4-QqM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2616.8000000000002" y="-669.71514242878561"/>
+            <point key="canvasLocation" x="1825" y="-612"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="N0V-Zc-gYE">
@@ -469,7 +485,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PrV-7R-LHc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="206" y="-2042"/>
+            <point key="canvasLocation" x="218" y="-2086"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="IkO-mn-FBs">
@@ -487,7 +503,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="diu-7f-i1O" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="206" y="-1389"/>
+            <point key="canvasLocation" x="206" y="-1360"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="pwQ-KM-Oy5">
@@ -505,12 +521,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U5m-DP-1zL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="206" y="-668"/>
+            <point key="canvasLocation" x="206" y="-614"/>
         </scene>
         <!--Events View Controller-->
         <scene sceneID="XdH-AH-YyM">
             <objects>
-                <collectionViewController title="Events View Controller" id="EdD-VW-5f5" customClass="EventsViewController" customModule="MarvelComic" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="eventsViewController" title="Events View Controller" id="EdD-VW-5f5" customClass="EventsViewController" customModule="MarvelComic" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="N3M-Lu-qsV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -540,7 +556,6 @@
                                 </view>
                                 <connections>
                                     <outlet property="titleLabel" destination="6Cr-c2-jao" id="PDq-61-JBU"/>
-                                    <segue destination="7UF-0j-Bg4" kind="presentation" id="Hhp-R8-6Nb"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -550,15 +565,18 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" id="7lU-qM-Gqh"/>
+                    <connections>
+                        <segue destination="05Q-cN-i95" kind="presentation" id="jud-6b-dft"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gfq-0d-Lut" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1065" y="72"/>
+            <point key="canvasLocation" x="1065" y="156"/>
         </scene>
         <!--Event View Controller-->
         <scene sceneID="zxm-mf-Ooe">
             <objects>
-                <viewController title="Event View Controller" id="05Q-cN-i95" customClass="EventViewController" customModule="MarvelComic" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="eventViewController" title="Event View Controller" id="05Q-cN-i95" customClass="EventViewController" customModule="MarvelComic" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nGX-xf-5hs">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -590,12 +608,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E4i-tP-D2Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2617" y="72"/>
+            <point key="canvasLocation" x="1825" y="156"/>
         </scene>
         <!--SeriezViewController-->
         <scene sceneID="2sl-zY-L8X">
             <objects>
-                <viewController title="SeriezViewController" id="4qO-yJ-JCD" customClass="SeriezViewController" customModule="MarvelComic" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="seriezViewController" title="SeriezViewController" id="4qO-yJ-JCD" customClass="SeriezViewController" customModule="MarvelComic" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oqo-GV-Mvt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -627,12 +645,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zb5-1F-TRh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2616.8000000000002" y="781.25937031484261"/>
+            <point key="canvasLocation" x="1825" y="909"/>
         </scene>
         <!--Story View Controller-->
         <scene sceneID="YE1-rg-ci0">
             <objects>
-                <viewController title="Story View Controller" id="U4b-yy-PNs" customClass="StoryViewController" customModule="MarvelComic" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="storyViewController" title="Story View Controller" id="U4b-yy-PNs" customClass="StoryViewController" customModule="MarvelComic" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uqU-9n-ibZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -664,12 +682,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ct1-ep-Sxy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2617" y="1540"/>
+            <point key="canvasLocation" x="1825" y="1662"/>
         </scene>
         <!--Series View Controller-->
         <scene sceneID="3JI-BL-8Rw">
             <objects>
-                <collectionViewController title="Series View Controller" id="FtP-cc-uq3" customClass="SeriesViewController" customModule="MarvelComic" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="seriesViewController" title="Series View Controller" id="FtP-cc-uq3" customClass="SeriesViewController" customModule="MarvelComic" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="vVV-wX-qcQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -699,7 +717,6 @@
                                 </view>
                                 <connections>
                                     <outlet property="titleLabel" destination="Pj7-J0-3An" id="Qgf-u6-xBK"/>
-                                    <segue destination="hoZ-Iw-qDW" kind="presentation" id="9aO-Tf-SPq"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -709,10 +726,13 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" id="ohq-yP-j5u"/>
+                    <connections>
+                        <segue destination="4qO-yJ-JCD" kind="presentation" id="05t-HA-CvF"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z4T-d0-XbP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1065" y="791"/>
+            <point key="canvasLocation" x="1065" y="909"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="v5X-h9-gEX">
@@ -730,7 +750,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tsI-CN-2JZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="206" y="80"/>
+            <point key="canvasLocation" x="206" y="156"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="IJN-Xe-jc9">
@@ -748,7 +768,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Qr-e8-x6w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="206" y="791"/>
+            <point key="canvasLocation" x="206" y="909"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="bQJ-IX-PAr">
@@ -766,115 +786,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gkJ-gV-oW5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="206" y="1540"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="LRc-ie-2RU">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="LHn-FU-Y1f" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="BVV-9A-SXE">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="aRk-mV-JmQ" kind="relationship" relationship="rootViewController" id="Mko-YT-Llc"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zXR-Wd-QtD" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1826" y="-2043"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="zms-5V-jHu">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="oxh-Ld-yIO" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="RZ4-rz-6hb">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="0md-Hb-CBS" kind="relationship" relationship="rootViewController" id="Fzw-0I-qn2"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Hy2-PM-Vaw" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1825" y="-1389"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="79e-aN-Tle">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0p0-m7-xfo" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ON4-4V-qCl">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="kSj-jK-kZM" kind="relationship" relationship="rootViewController" id="78g-oW-88j"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8wv-nO-PDz" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1846" y="-670"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="n3Z-4G-6tZ">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7UF-0j-Bg4" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gne-Pi-2G0">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="05Q-cN-i95" kind="relationship" relationship="rootViewController" id="39c-tP-5QS"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="V8d-me-j0F" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1846" y="80"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="Kjn-PK-CYH">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hoZ-Iw-qDW" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="a7H-q5-cYS">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="4qO-yJ-JCD" kind="relationship" relationship="rootViewController" id="kYX-oh-VLP"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Tc3-jW-8KX" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1846" y="790"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="8cW-lb-NKE">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mNX-Dp-ecd" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ddM-8H-ukI">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="U4b-yy-PNs" kind="relationship" relationship="rootViewController" id="wqf-kJ-524"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8FW-8l-d1f" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1846" y="1540"/>
+            <point key="canvasLocation" x="206" y="1662"/>
         </scene>
     </scenes>
     <resources>

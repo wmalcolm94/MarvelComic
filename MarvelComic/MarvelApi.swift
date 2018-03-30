@@ -30,7 +30,7 @@ final class MarvelApi {
         return theKey
     }
     
-    static func apiCharacters(_ onSuccess: @escaping ([Character]?) -> () ) {
+    static func apiCharacters(_ onSuccess: @escaping ([CharacterModel]?) -> () ) {
         guard let theKey = key else { return }
         let url = "https://gateway.marvel.com:443/v1/public/characters" + theKey
         
@@ -43,7 +43,7 @@ final class MarvelApi {
         }
     }
 
-    static func apiCharacter(id: Int, _ onSuccess: @escaping (Character?) -> () ) {
+    static func apiCharacter(id: Int, _ onSuccess: @escaping (CharacterModel?) -> () ) {
         guard let theKey = key else { return }
         let url = "https://gateway.marvel.com:443/v1/public/characters/\(id)\(theKey)"
         
@@ -54,7 +54,7 @@ final class MarvelApi {
         }
     }
     
-    static func apiComics(_ onSuccess: @escaping ([Comic]?) -> () ) {
+    static func apiComics(_ onSuccess: @escaping ([ComicModel]?) -> () ) {
         guard let theKey = key else { return }
         let url = "https://gateway.marvel.com:443/v1/public/comics" + theKey
         
@@ -67,7 +67,7 @@ final class MarvelApi {
         }
     }
     
-    static func apiComic(id: Int, _ onSuccess: @escaping (Comic?) -> () ) {
+    static func apiComic(id: Int, _ onSuccess: @escaping (ComicModel?) -> () ) {
         guard let theKey = key else { return }
         let url = "https://gateway.marvel.com:443/v1/public/comics/\(id)\(theKey)"
         
@@ -78,7 +78,7 @@ final class MarvelApi {
         }
     }
     
-    static func apiCreators(_ onSuccess: @escaping ([Creator]?) -> () ) {
+    static func apiCreators(_ onSuccess: @escaping ([CreatorModel]?) -> () ) {
         guard let theKey = key else { return }
         let url = "https://gateway.marvel.com:443/v1/public/creators" + theKey
         
@@ -91,7 +91,7 @@ final class MarvelApi {
         }
     }
     
-    static func apiCreator(id: Int, _ onSuccess: @escaping (Creator?) -> () ) {
+    static func apiCreator(id: Int, _ onSuccess: @escaping (CreatorModel?) -> () ) {
         guard let theKey = key else { return }
         let url = "https://gateway.marvel.com:443/v1/public/creators/\(id)\(theKey)"
         
@@ -102,7 +102,7 @@ final class MarvelApi {
         }
     }
     
-    static func apiEvents(_ onSuccess: @escaping ([Event]?) -> () ) {
+    static func apiEvents(_ onSuccess: @escaping ([EventModel]?) -> () ) {
         guard let theKey = key else { return }
         let url = "https://gateway.marvel.com:443/v1/public/events" + theKey
         Alamofire.request(url).responseObject { (response: DataResponse<MarvelWrapper>) in 
@@ -114,7 +114,7 @@ final class MarvelApi {
         }
     }
     
-    static func apiEvent(id: Int, _ onSuccess: @escaping (Event?) -> () ) {
+    static func apiEvent(id: Int, _ onSuccess: @escaping (EventModel?) -> () ) {
         guard let theKey = key else { return }
         let url = "https://gateway.marvel.com:443/v1/public/events/\(id)\(theKey)"
         
@@ -125,7 +125,7 @@ final class MarvelApi {
         }
     }
     
-    static func apiSeries(_ onSuccess: @escaping ([Series]?) -> () ) {
+    static func apiSeries(_ onSuccess: @escaping ([SeriesModel]?) -> () ) {
         guard let theKey = key else { return }
         let url = "https://gateway.marvel.com:443/v1/public/series" + theKey
         Alamofire.request(url).responseObject { (response: DataResponse<MarvelWrapper>) in 
@@ -137,7 +137,7 @@ final class MarvelApi {
         }
     }
     
-    static func apiSeries(id: Int, _ onSuccess: @escaping (Series?) -> () ) {
+    static func apiSeries(id: Int, _ onSuccess: @escaping (SeriesModel?) -> () ) {
         guard let theKey = key else { return }
         let url = "https://gateway.marvel.com:443/v1/public/series\(id)\(theKey)"
         
@@ -148,7 +148,7 @@ final class MarvelApi {
         }
     }
     
-    static func apiStories(_ onSuccess: @escaping ([Story]?) -> () ) {
+    static func apiStories(_ onSuccess: @escaping ([StoryModel]?) -> () ) {
         guard let theKey = key else { return }
         let url = "https://gateway.marvel.com:443/v1/public/stories" + theKey
         Alamofire.request(url).responseObject { (response: DataResponse<MarvelWrapper>) in 
@@ -160,7 +160,7 @@ final class MarvelApi {
         }
     }
 
-    static func apiStory(id: Int, _ onSuccess: @escaping (Story?) -> () ) {
+    static func apiStory(id: Int, _ onSuccess: @escaping (StoryModel?) -> () ) {
         guard let theKey = key else { return }
         let url = "https://gateway.marvel.com:443/v1/public/stories/\(id)\(theKey)"
         

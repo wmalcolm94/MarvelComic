@@ -10,14 +10,14 @@ import UIKit
 
 class ComicsViewController : UICollectionViewController {
     fileprivate let reuseIdentifier = "ComicCell"
-    var comics: [Comic]?
+    var comics: [ComicModel]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         MarvelApi.apiComics(self.setComics)
     }
     
-    func setComics(_ comic: [Comic]?) {
+    func setComics(_ comic: [ComicModel]?) {
         self.comics = comic
         self.collectionView?.reloadData()
     }
@@ -25,18 +25,13 @@ class ComicsViewController : UICollectionViewController {
 
 private extension ComicsViewController {
     func ComicsForIndexPath(indexPath: IndexPath) -> String? {
-        guard let results = comics else {
-            return nil
-        }
-        guard let name = results[(indexPath as NSIndexPath).section].title else {
-            return nil
-        }
+        guard let results = comics else { return }
+        guard let name = results[(indexPath as NSIndexPath).section].title else { return }
         return name
     }
 }
 
 extension ComicsViewController {
-    //1
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         guard let results = comics else {
             return 1
@@ -44,30 +39,29 @@ extension ComicsViewController {
         return results.count
     }
     
-    //2
     override func collectionView(_ collectionView: UICollectionView,
                                  numberOfItemsInSection section: Int) -> Int {
         return 1
     }
     
-    //3
+
     override func collectionView(_ collectionView: UICollectionView,
                                  cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier,
                                                       for: indexPath) as! ComicCell
-        //2
         let comicItem = ComicsForIndexPath(indexPath: indexPath)
         cell.backgroundColor = UIColor.white
-        //3
         cell.titleLabel.text = comicItem
-        
         return cell
     }
     
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        //let url = thumbnailFileURLS[indexPath.item]
-        //        if UIApplication.sharedApplication().canOpenURL(url) {
-        //            UIApplication.sharedApplication().openURL(url)
-        //        }
+
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let results = comics else { return }
+        let comic = results[(indexPath as NSIndexPath).section]
+        let comicController = self.storyboard?.instantiateViewController(withIdentifier: "comicViewController") as! ComicViewController
+        
+        comicController.comic = comic 
+        navigationController?.pushViewController(comicController, animated: true)
     }
 }

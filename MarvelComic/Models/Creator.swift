@@ -8,7 +8,7 @@
 
 import ObjectMapper
 
-class Creator: Mappable {
+class CreatorModel: Mappable {
     var id: Int?
     var firstName: String?
     var middleName: String?

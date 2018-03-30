@@ -12,7 +12,7 @@ class StoryCell : UICollectionViewCell {
     
     @IBOutlet weak var titleLabel: UILabel!
     
-    var story: Story? {
+    var story: StoryModel? {
         didSet {
             guard let story = story else { return }
             

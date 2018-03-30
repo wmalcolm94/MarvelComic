@@ -12,7 +12,7 @@ class EventCell : UICollectionViewCell {
     
     @IBOutlet weak var titleLabel: UILabel!
     
-    var event: Event? {
+    var event: EventModel? {
         didSet {
             guard let event = event else { return }
             

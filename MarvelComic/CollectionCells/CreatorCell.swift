@@ -12,7 +12,7 @@ class CreatorCell : UICollectionViewCell {
 
     @IBOutlet weak var nameLabel: UILabel!
     
-    var creator: Creator? {
+    var creator: CreatorModel? {
         didSet {
             guard let creator = creator else { return }
             

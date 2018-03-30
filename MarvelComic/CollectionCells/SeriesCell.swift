@@ -12,7 +12,7 @@ class SeriesCell : UICollectionViewCell {
     
     @IBOutlet weak var titleLabel: UILabel!
     
-    var series: Series? {
+    var series: SeriesModel? {
         didSet {
             guard let series = series else { return }
             

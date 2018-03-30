@@ -10,14 +10,14 @@ import UIKit
 
 class CreatorsViewController : UICollectionViewController {
     fileprivate let reuseIdentifier = "CreatorCell"
-    var creators: [Creator]?
+    var creators: [CreatorModel]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         MarvelApi.apiCreators(self.setCreators)
     }
     
-    func setCreators(_ creator: [Creator]?) {
+    func setCreators(_ creator: [CreatorModel]?) {
         self.creators = creator
         self.collectionView?.reloadData()
     }
@@ -36,7 +36,6 @@ private extension CreatorsViewController {
 }
 
 extension CreatorsViewController {
-    //1
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         guard let results = creators else {
             return 1
@@ -44,30 +43,28 @@ extension CreatorsViewController {
         return results.count
     }
     
-    //2
     override func collectionView(_ collectionView: UICollectionView,
                                  numberOfItemsInSection section: Int) -> Int {
         return 1
     }
     
-    //3
     override func collectionView(_ collectionView: UICollectionView,
                                  cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier,
                                                       for: indexPath) as! CreatorCell
-        //2
         let creatorItem = CreatorsForIndexPath(indexPath: indexPath)
         cell.backgroundColor = UIColor.white
-        //3
         cell.nameLabel.text = creatorItem
         
         return cell
     }
     
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        //let url = thumbnailFileURLS[indexPath.item]
-        //        if UIApplication.sharedApplication().canOpenURL(url) {
-        //            UIApplication.sharedApplication().openURL(url)
-        //        }
+    override func collectionView(collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+       guard let results = self.creators else { return }
+       let creator = results[(indexPath as NSIndexPath).section]
+       let creatorController = self.storyboard?.instantiateViewController(withIdentifier: "creatorViewController") as? creatorViewController
+
+       creatorController.creator = creator
+       navigationController?.pushViewController(creatorController, animated: true)
     }
 }

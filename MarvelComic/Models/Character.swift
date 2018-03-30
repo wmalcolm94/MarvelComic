@@ -8,7 +8,7 @@
 
 import ObjectMapper
 
-class Character: Mappable {
+class CharacterModel: Mappable {
     
     var id: Int?
     var name: String?

@@ -18,14 +18,14 @@ import UIKit
 
 class SeriesViewController : UICollectionViewController {
     fileprivate let reuseIdentifier = "SeriesCell"
-    var series: [Series]?
+    var series: [SeriesModel]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         MarvelApi.apiSeries(self.setSeries)
     }
     
-    func setSeries(_ series: [Series]?) {
+    func setSeries(_ series: [SeriesModel]?) {
         self.series = series
         self.collectionView?.reloadData()
     }
@@ -68,11 +68,13 @@ extension SeriesViewController {
         return cell
     }
     
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        //let url = thumbnailFileURLS[indexPath.item]
-        //        if UIApplication.sharedApplication().canOpenURL(url) {
-        //            UIApplication.sharedApplication().openURL(url)
-        //        }
+    override func collectionView(collectionView: UICollectionView, didSelectItemAt indexPath: NSIndexPath) {
+        guard let results = self.series else { return }
+        let seriez = results[(indexPath as NSIndexPath).section]
+        let seriesController = self.storyboard?.instantiateViewController(withIdentifier: "seriezViewController") as! SeriezViewController
+
+        seriesController.series = seriez
+        navigationController?.pushViewController(seriesController, animated: true)
     }
 }
 

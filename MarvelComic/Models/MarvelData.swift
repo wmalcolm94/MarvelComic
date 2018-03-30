@@ -17,12 +17,12 @@ class MarvelData: Mappable {
     //var results: [Character]?
     
     //for the various options that results can be.
-    var characters: [Character]?
-    var comics: [Comic]?
-    var creators: [Creator]?
-    var events: [Event]?
-    var series: [Series]?
-    var stories: [Story]?
+    var characters: [CharacterModel]?
+    var comics: [ComicModel]?
+    var creators: [CreatorModel]?
+    var events: [EventModel]?
+    var series: [SeriesModel]?
+    var stories: [StoryModel]?
     
     required init?(map: Map) {
         

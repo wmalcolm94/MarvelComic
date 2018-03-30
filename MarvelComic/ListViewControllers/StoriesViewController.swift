@@ -18,14 +18,14 @@ import UIKit
 
 class StoriesViewController : UICollectionViewController {
     fileprivate let reuseIdentifier = "StoryCell"
-    var stories: [Story]?
+    var stories: [StoryModel]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         MarvelApi.apiStories(self.setStories)
     }
     
-    func setStories(_ stories: [Story]?) {
+    func setStories(_ stories: [StoryModel]?) {
         self.stories = stories
         self.collectionView?.reloadData()
     }
@@ -39,8 +39,7 @@ private extension StoriesViewController {
     }
 }
 
-extension StoriesViewController {
-    //1
+extension StoriesViewController { 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         guard let results = stories else {
             return 1
@@ -48,31 +47,29 @@ extension StoriesViewController {
         return results.count
     }
     
-    //2
     override func collectionView(_ collectionView: UICollectionView,
                                  numberOfItemsInSection section: Int) -> Int {
         return 1
     }
     
-    //3
     override func collectionView(_ collectionView: UICollectionView,
                                  cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier,
                                                       for: indexPath) as! StoryCell
-        //2
         let storyItem = StoriesForIndexPath(indexPath: indexPath)
         cell.backgroundColor = UIColor.white
-        //3
         cell.titleLabel.text = storyItem
         
         return cell
     }
     
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        //let url = thumbnailFileURLS[indexPath.item]
-        //        if UIApplication.sharedApplication().canOpenURL(url) {
-        //            UIApplication.sharedApplication().openURL(url)
-        //        }
+    override func collectionView(collectionView: UICollectionView, didSelectItemAt indexPath: NSIndexPath) {
+        guard let results = self.stories else { return }
+        let story = results[(indexPath as NSIndexPath).section]
+        let storyController = self.storyboard?.instantiateViewController(withIdentifer: "storyViewController") as! storyViewController
+
+        storyController.story = story
+        navigationController?.pushViewController(storyController, animated: true)
     }
 }
 
