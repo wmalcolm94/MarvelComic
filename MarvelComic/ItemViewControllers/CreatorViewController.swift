@@ -18,7 +18,8 @@ class CreatorViewController : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        MarvelApi.apiCreator(id: 1111, self.setCreator)
+        guard let id = creator?.id else { return }
+        MarvelApi.apiCreator(id: id, self.setCreator)
     }
     
     func setCreator(_ create: CreatorModel?) {

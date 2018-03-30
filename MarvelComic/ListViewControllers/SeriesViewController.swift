@@ -68,7 +68,7 @@ extension SeriesViewController {
         return cell
     }
     
-    override func collectionView(collectionView: UICollectionView, didSelectItemAt indexPath: NSIndexPath) {
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let results = self.series else { return }
         let seriez = results[(indexPath as NSIndexPath).section]
         let seriesController = self.storyboard?.instantiateViewController(withIdentifier: "seriezViewController") as! SeriezViewController

@@ -18,7 +18,8 @@ class StoryViewController : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        MarvelApi.apiStory(id: 1111, self.setStory)
+        guard let id = story?.id else { return }
+        MarvelApi.apiStory(id: id, self.setStory)
     }
     
     func setStory(_ storie: StoryModel?) {

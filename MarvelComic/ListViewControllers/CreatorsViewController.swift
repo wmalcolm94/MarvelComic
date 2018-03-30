@@ -59,10 +59,10 @@ extension CreatorsViewController {
         return cell
     }
     
-    override func collectionView(collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
        guard let results = self.creators else { return }
        let creator = results[(indexPath as NSIndexPath).section]
-       let creatorController = self.storyboard?.instantiateViewController(withIdentifier: "creatorViewController") as? creatorViewController
+       let creatorController = self.storyboard?.instantiateViewController(withIdentifier: "creatorViewController") as! CreatorViewController
 
        creatorController.creator = creator
        navigationController?.pushViewController(creatorController, animated: true)

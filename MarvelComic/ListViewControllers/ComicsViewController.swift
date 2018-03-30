@@ -25,8 +25,8 @@ class ComicsViewController : UICollectionViewController {
 
 private extension ComicsViewController {
     func ComicsForIndexPath(indexPath: IndexPath) -> String? {
-        guard let results = comics else { return }
-        guard let name = results[(indexPath as NSIndexPath).section].title else { return }
+        guard let results = comics else { return nil }
+        guard let name = results[(indexPath as NSIndexPath).section].title else { return nil }
         return name
     }
 }

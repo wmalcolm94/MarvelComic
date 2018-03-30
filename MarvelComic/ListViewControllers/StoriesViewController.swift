@@ -63,10 +63,10 @@ extension StoriesViewController {
         return cell
     }
     
-    override func collectionView(collectionView: UICollectionView, didSelectItemAt indexPath: NSIndexPath) {
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let results = self.stories else { return }
         let story = results[(indexPath as NSIndexPath).section]
-        let storyController = self.storyboard?.instantiateViewController(withIdentifer: "storyViewController") as! storyViewController
+        let storyController = self.storyboard?.instantiateViewController(withIdentifier: "storyViewController") as! StoryViewController
 
         storyController.story = story
         navigationController?.pushViewController(storyController, animated: true)

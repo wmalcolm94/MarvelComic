@@ -55,10 +55,10 @@ extension EventsViewController {
         return cell
     }
     
-    override func collectionView(collectionView: UICollectionView, didSelectItemAt indexPath: NSIndexPath) {
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let results = self.events else { return }
         let even = results[(indexPath as NSIndexPath).section]
-        let eventController = self.storyboard?.instantiateViewController(withIdentifer: "eventViewController") as! EventViewController 
+        let eventController = self.storyboard?.instantiateViewController(withIdentifier: "eventViewController") as! EventViewController 
 
         eventController.event = even
         navigationController?.pushViewController(eventController, animated: true)

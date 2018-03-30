@@ -18,7 +18,8 @@ class ComicViewController : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        MarvelApi.apiComic(id: 21478, self.setComic)
+        guard let id = comic?.id else { return }
+        MarvelApi.apiComic(id: id, self.setComic)
     }
     
     func setComic(_ comic: ComicModel?) {

@@ -18,7 +18,8 @@ class SeriezViewController : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        MarvelApi.apiSeries(id: 1111, self.setSeries)
+        guard let id = series?.id else { return }
+        MarvelApi.apiSeries(id: id, self.setSeries)
     }
     
     func setSeries(_ seriez: SeriesModel?) {

@@ -18,7 +18,8 @@ class EventViewController : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        MarvelApi.apiEvent(id: 227, self.setEvent)
+        guard let id = event?.id else { return }
+        MarvelApi.apiEvent(id: id, self.setEvent)
     }
     
     func setEvent(_ event: EventModel?) {
